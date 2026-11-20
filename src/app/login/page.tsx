@@ -138,7 +138,7 @@ function FormLogin() {
                     setEmail(d.email);
                     setPassword(d.pass);
                   }}
-                  className="min-h-9 rounded-xl px-3 text-xs font-semibold text-muted shadow-neu-sm hover:text-brand-200"
+                  className="min-h-9 rounded-xl px-3 text-xs font-semibold text-muted shadow-neu-sm hover:text-brand-700"
                 >
                   {d.label}
                 </button>
@@ -165,7 +165,7 @@ function FormLogin() {
                 }}
                 className={clsx(
                   "min-h-11 rounded-2xl px-4 text-sm font-semibold transition",
-                  userPin === u.id ? "bg-base-800 text-brand-200 shadow-neu-in" : "text-muted shadow-neu-sm",
+                  userPin === u.id ? "bg-base-800 text-brand-700 shadow-neu-in" : "text-muted shadow-neu-sm",
                 )}
               >
                 {u.name} <span className="text-[10px] uppercase opacity-70">{u.role}</span>
@@ -207,7 +207,7 @@ function FormLogin() {
       )}
 
       {error && (
-        <p role="alert" className="mt-4 rounded-2xl bg-rose-500/10 px-4 py-3 text-sm font-semibold text-rose-300">
+        <p role="alert" className="mt-4 rounded-2xl bg-rose-500/10 px-4 py-3 text-sm font-semibold text-rose-600">
           {error}
         </p>
       )}

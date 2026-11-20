@@ -44,8 +44,8 @@ export function Button({
     primary: "bg-grad-brand text-white shadow-glow hover:brightness-110",
     success: "bg-gradient-to-br from-emerald-600 to-emerald-400 text-white shadow-neu-sm hover:brightness-110",
     danger: "bg-gradient-to-br from-rose-700 to-rose-500 text-white shadow-neu-sm hover:brightness-110",
-    outline: "bg-base-800 text-fg shadow-neu-sm hover:text-brand-200 active:shadow-neu-in-sm",
-    ghost: "text-muted hover:bg-white/5 hover:text-fg",
+    outline: "bg-base-800 text-fg shadow-neu-sm hover:text-brand-700 active:shadow-neu-in-sm",
+    ghost: "text-muted hover:bg-black/5 hover:text-fg",
   }[variant];
   // min-h 44px untuk target sentuh (PRD §10.4)
   const ukuran = {
@@ -76,11 +76,11 @@ export function Badge({
   tone?: "neutral" | "green" | "amber" | "red" | "blue";
 }) {
   const warna = {
-    neutral: "bg-white/5 text-muted ring-white/10",
-    green: "bg-emerald-500/10 text-emerald-300 ring-emerald-400/20",
-    amber: "bg-amber-500/10 text-amber-300 ring-amber-400/20",
-    red: "bg-rose-500/10 text-rose-300 ring-rose-400/20",
-    blue: "bg-brand-500/15 text-brand-200 ring-brand-400/25",
+    neutral: "bg-black/5 text-muted ring-black/10",
+    green: "bg-emerald-500/10 text-emerald-700 ring-emerald-400/20",
+    amber: "bg-amber-500/10 text-amber-700 ring-amber-400/20",
+    red: "bg-rose-500/10 text-rose-600 ring-rose-400/20",
+    blue: "bg-brand-500/15 text-brand-700 ring-brand-400/25",
   }[tone];
   return (
     <span className={clsx("inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold ring-1", warna)}>
@@ -172,7 +172,7 @@ export function Modal({
     >
       <div
         className={clsx(
-          "flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-3xl bg-base-800 shadow-neu ring-1 ring-white/5 sm:rounded-3xl",
+          "flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-3xl bg-base-800 shadow-neu ring-1 ring-black/5 sm:rounded-3xl",
           wide ? "sm:max-w-3xl" : "sm:max-w-md",
         )}
       >

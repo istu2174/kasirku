@@ -137,7 +137,7 @@ export default function StockClient({ butuhApproval }: { butuhApproval: boolean 
                       </td>
                       <td className="font-mono text-xs">{s.sku}</td>
                       <td>{s.category}</td>
-                      <td className={`uang text-right font-bold ${s.qty < 0 ? "text-rose-300" : "text-fg"}`}>{s.qty}</td>
+                      <td className={`uang text-right font-bold ${s.qty < 0 ? "text-rose-600" : "text-fg"}`}>{s.qty}</td>
                       <td className="uang text-right text-muted">{s.minQty}</td>
                       <td>
                         {s.oversold ? (
@@ -191,7 +191,7 @@ export default function StockClient({ butuhApproval }: { butuhApproval: boolean 
                     <td>
                       <Badge tone={t.tone}>{t.label}</Badge>
                     </td>
-                    <td className={`uang text-right font-bold ${m.qty < 0 ? "text-rose-300" : "text-emerald-300"}`}>
+                    <td className={`uang text-right font-bold ${m.qty < 0 ? "text-rose-600" : "text-emerald-700"}`}>
                       {m.qty > 0 ? `+${m.qty}` : m.qty}
                     </td>
                     <td className="font-mono text-xs">{m.orderNo ?? (m.refType === "ORDER" ? "Order" : (m.refType ?? "—"))}</td>
@@ -288,7 +288,7 @@ function ModalPenyesuaian({
             {valid && (
               <>
                 {" "}
-                → <span className={`uang font-bold ${target.qty + delta < 0 ? "text-rose-300" : "text-grad"}`}>{target.qty + delta}</span>
+                → <span className={`uang font-bold ${target.qty + delta < 0 ? "text-rose-600" : "text-grad"}`}>{target.qty + delta}</span>
               </>
             )}
           </p>

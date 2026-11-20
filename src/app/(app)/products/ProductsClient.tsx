@@ -664,7 +664,7 @@ function ModalImport({
     >
       <div className="space-y-4">
         <p className="text-sm text-muted">
-          Baris pertama wajib header: <code className="font-mono text-xs text-brand-200">{HEADER_CSV}</code>. Harga & modal dalam rupiah
+          Baris pertama wajib header: <code className="font-mono text-xs text-brand-700">{HEADER_CSV}</code>. Harga & modal dalam rupiah
           bulat. Produk dengan SKU yang sudah ada akan diperbarui; kolom stock (opsional) menyetel stok dan tercatat sebagai mutasi.
         </p>
         <Field label="File CSV">
@@ -708,7 +708,7 @@ function ModalImport({
                       <tr key={g.baris}>
                         <td>{g.baris}</td>
                         <td className="font-mono text-xs">{g.sku || "—"}</td>
-                        <td className="text-rose-300">{g.error}</td>
+                        <td className="text-rose-600">{g.error}</td>
                       </tr>
                     ))}
                   </tbody>

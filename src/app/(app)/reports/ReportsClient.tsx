@@ -29,7 +29,7 @@ const tglMundur = (n: number) => {
 
 // Tampilan Button outline, tapi elemen <a> supaya jadi link download asli.
 const kelasLink =
-  "inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-base-800 px-4 text-sm font-semibold text-fg shadow-neu-sm transition hover:text-brand-200";
+  "inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-base-800 px-4 text-sm font-semibold text-fg shadow-neu-sm transition hover:text-brand-700";
 
 const PRESET = [
   { label: "Hari ini", hari: 0 },

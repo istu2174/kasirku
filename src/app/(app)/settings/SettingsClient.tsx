@@ -132,7 +132,7 @@ export default function SettingsClient({ awal, printer }: { awal: Awal; printer:
             <Input type="tel" value={profil.phone} onChange={(e) => setProfil({ ...profil, phone: e.target.value })} required minLength={5} />
           </Field>
           <p className="text-xs text-muted">
-            Kode outlet: <span className="font-mono text-brand-200">{awal.code}</span> (dipakai di nomor struk, tidak bisa diubah)
+            Kode outlet: <span className="font-mono text-brand-700">{awal.code}</span> (dipakai di nomor struk, tidak bisa diubah)
           </p>
         </Card>
 
@@ -200,7 +200,7 @@ export default function SettingsClient({ awal, printer }: { awal: Awal; printer:
                 </div>
               </dl>
             ) : (
-              <p className="text-sm text-rose-300">Persen pajak/service harus 0–100.</p>
+              <p className="text-sm text-rose-600">Persen pajak/service harus 0–100.</p>
             )}
           </div>
         </Card>

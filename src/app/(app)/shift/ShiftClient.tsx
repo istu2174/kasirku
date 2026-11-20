@@ -244,7 +244,7 @@ export default function ShiftClient() {
                     <td className="uang text-right">{rupiah(r.openingCash)}</td>
                     <td className="uang text-right">{rupiah(r.expectedCash)}</td>
                     <td className="uang text-right">{r.countedCash === null ? "-" : rupiah(r.countedCash)}</td>
-                    <td className={clsx("uang text-right font-semibold", (r.difference ?? 0) < 0 && "text-rose-400")}>
+                    <td className={clsx("uang text-right font-semibold", (r.difference ?? 0) < 0 && "text-rose-600")}>
                       {r.difference === null ? "-" : uang(r.difference)}
                     </td>
                     <td className="text-right">
@@ -314,7 +314,7 @@ export default function ShiftClient() {
                   <span
                     className={clsx(
                       "uang font-extrabold",
-                      selisih === null ? "text-muted" : selisih < 0 ? "text-rose-400" : selisih > 0 ? "text-amber-300" : "text-emerald-300",
+                      selisih === null ? "text-muted" : selisih < 0 ? "text-rose-600" : selisih > 0 ? "text-amber-700" : "text-emerald-700",
                     )}
                   >
                     {selisih === null ? "…" : uang(selisih)}
@@ -342,7 +342,7 @@ export default function ShiftClient() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted">Selisih</span>
-                  <span className={clsx("uang font-extrabold", (selisih ?? 0) < 0 ? "text-rose-400" : "text-fg")}>
+                  <span className={clsx("uang font-extrabold", (selisih ?? 0) < 0 ? "text-rose-600" : "text-fg")}>
                     {uang(selisih ?? 0)}
                   </span>
                 </div>

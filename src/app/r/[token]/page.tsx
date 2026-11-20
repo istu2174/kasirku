@@ -19,7 +19,7 @@ export default async function StrukDigitalPage({ params }: { params: Promise<{ t
     return (
       <main className="grid min-h-screen place-items-center p-4">
         <div className="neu max-w-sm p-8 text-center">
-          <Receipt className="mx-auto mb-3 text-brand-300" size={36} aria-hidden />
+          <Receipt className="mx-auto mb-3 text-brand-700" size={36} aria-hidden />
           <h1 className="text-grad text-xl font-extrabold">
             {receipt ? "Struk sudah kedaluwarsa" : "Struk tidak ditemukan"}
           </h1>

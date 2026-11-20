@@ -173,13 +173,13 @@ export default function KdsClient() {
                         <span
                           className={clsx(
                             "inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold ring-1",
-                            terlambat ? "bg-rose-500/15 text-rose-300 ring-rose-400/40" : "bg-white/5 text-muted ring-white/10",
+                            terlambat ? "bg-rose-500/15 text-rose-600 ring-rose-400/40" : "bg-black/5 text-muted ring-black/10",
                           )}
                         >
                           <Clock size={12} /> {umur} mnt
                         </span>
                       </header>
-                      {t.note && <p className="rounded-xl bg-amber-500/10 px-3 py-2 text-xs text-amber-300">Catatan: {t.note}</p>}
+                      {t.note && <p className="rounded-xl bg-amber-500/10 px-3 py-2 text-xs text-amber-700">Catatan: {t.note}</p>}
 
                       <ul className="space-y-2">
                         {t.items.map((i) => {
@@ -187,13 +187,13 @@ export default function KdsClient() {
                           return (
                             <li key={i.id} className="flex items-center justify-between gap-2 border-t border-line pt-2">
                               <div className="min-w-0">
-                                <p className={clsx("font-semibold", i.kitchenStatus === "READY" ? "text-emerald-300" : "text-fg")}>
+                                <p className={clsx("font-semibold", i.kitchenStatus === "READY" ? "text-emerald-700" : "text-fg")}>
                                   {i.qty}× {i.nameSnapshot}
                                 </p>
                                 {i.modifiers.length > 0 && (
                                   <p className="text-xs text-muted">+ {i.modifiers.map((m) => m.nameSnapshot).join(", ")}</p>
                                 )}
-                                {i.note && <p className="text-xs italic text-amber-300">“{i.note}”</p>}
+                                {i.note && <p className="text-xs italic text-amber-700">“{i.note}”</p>}
                               </div>
                               {lanjut && (
                                 <Button

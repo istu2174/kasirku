@@ -651,7 +651,7 @@ export default function PosClient({
       {/* ── Katalog ── */}
       <section className="flex min-h-0 flex-1 flex-col p-4 lg:p-6">
         {(!online || antrean > 0) && (
-          <div className="mb-3 flex items-center gap-2 rounded-2xl bg-amber-500/10 px-4 py-3 text-sm font-semibold text-amber-200 ring-1 ring-amber-400/20">
+          <div className="mb-3 flex items-center gap-2 rounded-2xl bg-amber-500/10 px-4 py-3 text-sm font-semibold text-amber-700 ring-1 ring-amber-400/20">
             <WifiOff size={16} />
             {!online
               ? "Offline: order cash tetap jalan & disimpan di perangkat. QRIS/Transfer butuh koneksi internet."
@@ -659,7 +659,7 @@ export default function PosClient({
           </div>
         )}
         {modeDev && (
-          <div className="mb-3 rounded-2xl bg-brand-500/10 px-4 py-2.5 text-xs font-semibold text-brand-200 ring-1 ring-brand-400/25">
+          <div className="mb-3 rounded-2xl bg-brand-500/10 px-4 py-2.5 text-xs font-semibold text-brand-700 ring-1 ring-brand-400/25">
             MODE DEMO PEMBAYARAN — QRIS &amp; VA masih simulasi (belum tersambung payment gateway). Jangan terima
             pembayaran asli lewat QR ini.
           </div>
@@ -667,7 +667,7 @@ export default function PosClient({
         {!shiftAktif && (
           <a
             href="/shift"
-            className="mb-3 block rounded-2xl bg-rose-500/10 px-4 py-3 text-sm font-semibold text-rose-300 ring-1 ring-rose-400/20"
+            className="mb-3 block rounded-2xl bg-rose-500/10 px-4 py-3 text-sm font-semibold text-rose-600 ring-1 ring-rose-400/20"
           >
             Shift belum dibuka — klik untuk buka shift sebelum menerima order.
           </a>
@@ -720,9 +720,9 @@ export default function PosClient({
             >
               <div className="mb-2 grid h-12 w-12 place-items-center rounded-2xl text-2xl shadow-neu-in-sm">{p.imageEmoji}</div>
               <p className="line-clamp-2 min-h-[2.5em] text-sm font-bold leading-tight text-fg">{p.name}</p>
-              <p className="uang text-sm font-extrabold text-brand-300">{rupiah(p.price)}</p>
+              <p className="uang text-sm font-extrabold text-brand-700">{rupiah(p.price)}</p>
               {p.trackStock && (
-                <p className={clsx("text-[11px] font-semibold", p.stock <= 5 ? "text-rose-300" : "text-muted")}>
+                <p className={clsx("text-[11px] font-semibold", p.stock <= 5 ? "text-rose-600" : "text-muted")}>
                   stok {p.stock}
                 </p>
               )}
@@ -750,7 +750,7 @@ export default function PosClient({
             {baris.length > 0 && (
               <button
                 onClick={resetKasir}
-                className="grid h-11 w-11 place-items-center rounded-2xl text-muted shadow-neu-sm hover:text-rose-300"
+                className="grid h-11 w-11 place-items-center rounded-2xl text-muted shadow-neu-sm hover:text-rose-600"
                 aria-label="Kosongkan keranjang"
               >
                 <Trash2 size={16} />
@@ -796,7 +796,7 @@ export default function PosClient({
           <div className="flex-1 space-y-2 overflow-y-auto px-3 py-3">
             {!baris.length && <p className="px-3 py-10 text-center text-sm text-muted">Belum ada item. Pilih produk.</p>}
             {baris.map((b) => (
-              <div key={b.key} className="rounded-2xl px-3 py-2.5 hover:bg-white/[0.02]">
+              <div key={b.key} className="rounded-2xl px-3 py-2.5 hover:bg-black/[0.03]">
                 <div className="flex items-start gap-3">
                   <span className="mt-0.5 text-xl">{b.emoji}</span>
                   <div className="min-w-0 flex-1">
@@ -804,7 +804,7 @@ export default function PosClient({
                     {b.modifiers.length > 0 && (
                       <p className="truncate text-[11px] text-muted">{b.modifiers.map((m) => m.name).join(", ")}</p>
                     )}
-                    {b.note && <p className="truncate text-[11px] italic text-brand-200">“{b.note}”</p>}
+                    {b.note && <p className="truncate text-[11px] italic text-brand-700">“{b.note}”</p>}
                     <p className="uang text-xs text-muted">{rupiah(b.unitPrice + sumMod(b))}</p>
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -828,7 +828,7 @@ export default function PosClient({
                 <div className="mt-1.5 flex items-center justify-between">
                   <button
                     onClick={() => setCatatanKey(catatanKey === b.key ? null : b.key)}
-                    className="flex min-h-9 items-center gap-1 text-[11px] font-semibold text-muted hover:text-brand-200"
+                    className="flex min-h-9 items-center gap-1 text-[11px] font-semibold text-muted hover:text-brand-700"
                   >
                     <StickyNote size={12} /> Catatan
                   </button>
@@ -863,7 +863,7 @@ export default function PosClient({
                 />
               )}
               {total.rounding !== 0 && <Baris2 label="Pembulatan" nilai={total.rounding} />}
-              <div className="flex items-end justify-between border-t border-dashed border-white/10 pt-2">
+              <div className="flex items-end justify-between border-t border-dashed border-black/10 pt-2">
                 <span className="text-sm font-bold">Total</span>
                 <span className="uang text-grad text-2xl font-extrabold">{rupiah(total.grandTotal)}</span>
               </div>
@@ -978,7 +978,7 @@ export default function PosClient({
                 </button>
               ))}
             </div>
-            {!online && <p className="text-center text-xs text-amber-200">QRIS butuh koneksi internet</p>}
+            {!online && <p className="text-center text-xs text-amber-700">QRIS butuh koneksi internet</p>}
 
             {metode === "CASH" && (
               <div className="space-y-3">
@@ -1003,7 +1003,7 @@ export default function PosClient({
                 <div
                   className={clsx(
                     "flex justify-between rounded-2xl px-4 py-3 text-base font-bold",
-                    uang >= tagihan.grandTotal ? "bg-emerald-500/10 text-emerald-300" : "bg-rose-500/10 text-rose-300",
+                    uang >= tagihan.grandTotal ? "bg-emerald-500/10 text-emerald-700" : "bg-rose-500/10 text-rose-600",
                   )}
                 >
                   <span>{uang >= tagihan.grandTotal ? "Kembalian" : "Uang kurang"}</span>
@@ -1024,7 +1024,7 @@ export default function PosClient({
             {metode === "BANK" && (
               <div className="space-y-3">
                 {!rekening.bankAccountNo ? (
-                  <p className="neu-in p-4 text-sm text-amber-200">
+                  <p className="neu-in p-4 text-sm text-amber-700">
                     Rekening toko belum diatur. Owner/Manager isi dulu di Pengaturan → Rekening transfer bank.
                   </p>
                 ) : (
@@ -1034,7 +1034,7 @@ export default function PosClient({
                     <p className="text-sm text-muted">a.n. {rekening.bankAccountName}</p>
                     <button
                       onClick={() => void navigator.clipboard?.writeText(rekening.bankAccountNo.replace(/\D/g, ""))}
-                      className="min-h-9 text-xs font-semibold text-brand-300 hover:text-brand-200"
+                      className="min-h-9 text-xs font-semibold text-brand-700 hover:text-brand-700"
                     >
                       Salin nomor rekening
                     </button>
@@ -1160,7 +1160,7 @@ export default function PosClient({
             <a
               key={o.id}
               href={`/pos?order=${o.id}`}
-              className="neu flex min-h-14 items-center justify-between px-4 py-3 hover:text-brand-200"
+              className="neu flex min-h-14 items-center justify-between px-4 py-3 hover:text-brand-700"
             >
               <div>
                 <p className="text-sm font-bold">{o.orderNo}</p>
@@ -1178,7 +1178,7 @@ export default function PosClient({
           <div className="space-y-4">
             <StatusBesar status="LUNAS" sub={struk.data?.receiptNo} />
             {kembalian !== null && kembalian > 0 && (
-              <div className="flex justify-between rounded-2xl bg-emerald-500/10 px-4 py-3 text-lg font-bold text-emerald-300">
+              <div className="flex justify-between rounded-2xl bg-emerald-500/10 px-4 py-3 text-lg font-bold text-emerald-700">
                 <span>Kembalian</span>
                 <span className="uang">{rupiah(kembalian)}</span>
               </div>
@@ -1241,7 +1241,7 @@ function PilihanGrup({
   return (
     <div>
       <p className="mb-2 text-xs font-bold uppercase tracking-wide text-muted">
-        {judul} {wajib && <span className="text-rose-300">*</span>}
+        {judul} {wajib && <span className="text-rose-600">*</span>}
         {maks && maks > 1 && <span className="normal-case"> (maks {maks})</span>}
       </p>
       <div className="flex flex-wrap gap-2">{children}</div>
@@ -1267,7 +1267,7 @@ function NominalBtn({ onClick, children }: { onClick: () => void; children: Reac
   return (
     <button
       onClick={onClick}
-      className="min-h-11 rounded-xl text-xs font-bold text-muted shadow-neu-sm hover:text-brand-200 active:shadow-neu-in-sm"
+      className="min-h-11 rounded-xl text-xs font-bold text-muted shadow-neu-sm hover:text-brand-700 active:shadow-neu-in-sm"
     >
       {children}
     </button>
@@ -1277,10 +1277,10 @@ function NominalBtn({ onClick, children }: { onClick: () => void; children: Reac
 function StatusBesar({ status, sub }: { status: StatusBayar; sub?: string }) {
   if (status === "IDLE") return null;
   const gaya = {
-    MENUNGGU: { label: "MENUNGGU", kelas: "bg-amber-500/10 text-amber-200 ring-amber-400/30 animate-pulse" },
-    LUNAS: { label: "LUNAS", kelas: "bg-emerald-500/10 text-emerald-300 ring-emerald-400/30" },
-    GAGAL: { label: "GAGAL", kelas: "bg-rose-500/10 text-rose-300 ring-rose-400/30" },
-    KEDALUWARSA: { label: "KEDALUWARSA", kelas: "bg-white/5 text-muted ring-white/10" },
+    MENUNGGU: { label: "MENUNGGU", kelas: "bg-amber-500/10 text-amber-700 ring-amber-400/30 animate-pulse" },
+    LUNAS: { label: "LUNAS", kelas: "bg-emerald-500/10 text-emerald-700 ring-emerald-400/30" },
+    GAGAL: { label: "GAGAL", kelas: "bg-rose-500/10 text-rose-600 ring-rose-400/30" },
+    KEDALUWARSA: { label: "KEDALUWARSA", kelas: "bg-black/5 text-muted ring-black/10" },
   }[status];
   return (
     <div className={clsx("rounded-2xl px-4 py-4 text-center ring-1", gaya.kelas)} role="status" aria-live="polite">

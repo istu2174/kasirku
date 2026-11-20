@@ -84,7 +84,7 @@ export default function DashboardClient() {
               {data.perluReview.length > 0 && (
                 <Card className="p-5 ring-1 ring-rose-400/30">
                   <div className="mb-3 flex items-center gap-2">
-                    <AlertTriangle size={18} className="text-rose-300" />
+                    <AlertTriangle size={18} className="text-rose-600" />
                     <h2 className="font-bold text-fg">Pembayaran perlu review</h2>
                     <Badge tone="red">{data.perluReview.length}</Badge>
                   </div>
@@ -111,7 +111,7 @@ export default function DashboardClient() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/orders" className="mt-3 inline-block text-sm font-semibold text-brand-200 hover:underline">
+                  <Link href="/orders" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
                     Buka daftar pesanan
                   </Link>
                 </Card>
@@ -119,7 +119,7 @@ export default function DashboardClient() {
               {data.printGagal.length > 0 && (
                 <Card className="p-5 ring-1 ring-amber-400/30">
                   <div className="mb-3 flex items-center gap-2">
-                    <Printer size={18} className="text-amber-300" />
+                    <Printer size={18} className="text-amber-700" />
                     <h2 className="font-bold text-fg">Cetak struk gagal</h2>
                     <Badge tone="amber">{data.printGagal.length}</Badge>
                   </div>
@@ -132,11 +132,11 @@ export default function DashboardClient() {
                             {tanggalWaktu(j.createdAt)} · {j.attempts}x percobaan
                           </span>
                         </div>
-                        {j.error && <p className="mt-1 text-xs text-rose-300">{j.error}</p>}
+                        {j.error && <p className="mt-1 text-xs text-rose-600">{j.error}</p>}
                       </li>
                     ))}
                   </ul>
-                  <Link href="/receipts" className="mt-3 inline-block text-sm font-semibold text-brand-200 hover:underline">
+                  <Link href="/receipts" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
                     Cetak ulang di menu Struk
                   </Link>
                 </Card>
@@ -214,7 +214,7 @@ export default function DashboardClient() {
                 Stok kritis{" "}
                 {data.stokKritisTotal > 0 && <Badge tone="amber">{data.stokKritisTotal}</Badge>}
               </h2>
-              <Link href="/stock" className="text-sm font-semibold text-brand-200 hover:underline">
+              <Link href="/stock" className="text-sm font-semibold text-brand-700 hover:underline">
                 Kelola stok
               </Link>
             </div>

@@ -179,7 +179,7 @@ export default function OrdersClient({ role }: { role: Role }) {
               {orders.map((o) => (
                 <tr key={o.id} className="cursor-pointer" onClick={() => setPilihId(o.id)}>
                   <td>
-                    <button className="min-h-11 text-left font-semibold text-fg hover:text-brand-200">{o.orderNo}</button>
+                    <button className="min-h-11 text-left font-semibold text-fg hover:text-brand-700">{o.orderNo}</button>
                   </td>
                   <td className="text-muted">{tanggalWaktu(o.createdAt)}</td>
                   <td>
@@ -374,7 +374,7 @@ function DetailOrder({
 
           {order.needsReview && (
             <div className="rounded-2xl bg-rose-500/10 p-4 ring-1 ring-rose-400/20">
-              <p className="flex items-center gap-2 font-semibold text-rose-300">
+              <p className="flex items-center gap-2 font-semibold text-rose-600">
                 <AlertTriangle size={16} aria-hidden /> Nominal pembayaran tidak cocok, perlu review manager
               </p>
               <ul className="mt-2 space-y-1 text-sm">
@@ -388,7 +388,7 @@ function DetailOrder({
                       <span>
                         {METODE[p.method] ?? p.method} diterima:{" "}
                         <span className="uang font-semibold">{rupiah(diterima)}</span>{" "}
-                        <span className="text-rose-300">
+                        <span className="text-rose-600">
                           (selisih <span className="uang">{rupiah(diterima - order.grandTotal)}</span>)
                         </span>
                       </span>
@@ -411,7 +411,7 @@ function DetailOrder({
 
           <section>
             <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Item</h4>
-            <ul className="neu-in divide-y divide-white/5 rounded-2xl px-4">
+            <ul className="neu-in divide-y divide-black/5 rounded-2xl px-4">
               {order.items.map((i) => (
                 <li key={i.id} className="py-3">
                   <div className="flex justify-between gap-3">
@@ -426,7 +426,7 @@ function DetailOrder({
                       {m.priceDelta ? <span className="uang"> ({rupiah(m.priceDelta)})</span> : null}
                     </p>
                   ))}
-                  {i.note && <p className="text-sm italic text-brand-200">Catatan: {i.note}</p>}
+                  {i.note && <p className="text-sm italic text-brand-700">Catatan: {i.note}</p>}
                 </li>
               ))}
             </ul>
@@ -469,7 +469,7 @@ function DetailOrder({
                       )}
                       {p.refundedAmount > 0 && (
                         <span>
-                          Direfund: <span className="uang text-rose-300">{rupiah(p.refundedAmount)}</span>
+                          Direfund: <span className="uang text-rose-600">{rupiah(p.refundedAmount)}</span>
                         </span>
                       )}
                       <span>{p.paidAt ? `Lunas ${tanggalWaktu(p.paidAt)}` : `Dibuat ${tanggalWaktu(p.createdAt)}`}</span>
@@ -483,7 +483,7 @@ function DetailOrder({
                             <img
                               src={p.proofUrl}
                               alt="Bukti transfer"
-                              className="max-h-64 rounded-xl ring-1 ring-white/10"
+                              className="max-h-64 rounded-xl ring-1 ring-black/10"
                             />
                           </a>
                         ) : (
@@ -495,7 +495,7 @@ function DetailOrder({
                     {p.method === "MANUAL_TRANSFER" && p.status === "PENDING" && (
                       <div className="mt-3">
                         {!bolehApprove ? (
-                          <p className="text-xs text-amber-300">Menunggu verifikasi Manager/Owner.</p>
+                          <p className="text-xs text-amber-700">Menunggu verifikasi Manager/Owner.</p>
                         ) : verifikasi?.paymentId === p.id ? (
                           <div className="flex flex-wrap items-center gap-2">
                             <span className="text-sm">
@@ -566,7 +566,7 @@ function DetailOrder({
 
           {aksi?.jenis === "cancel" && (
             <section className="neu-in space-y-3 rounded-2xl p-4">
-              <h4 className="font-bold text-rose-300">Batalkan order</h4>
+              <h4 className="font-bold text-rose-600">Batalkan order</h4>
               {aksi.langkah === 1 ? (
                 <>
                   <Field label="Alasan pembatalan" hint="Minimal 3 karakter, tercatat di audit log.">
@@ -606,7 +606,7 @@ function DetailOrder({
 
           {aksi?.jenis === "refund" && bayarLunas && (
             <section className="neu-in space-y-3 rounded-2xl p-4">
-              <h4 className="font-bold text-rose-300">Refund ke {METODE[bayarLunas.method] ?? bayarLunas.method}</h4>
+              <h4 className="font-bold text-rose-600">Refund ke {METODE[bayarLunas.method] ?? bayarLunas.method}</h4>
               {aksi.langkah === 1 ? (
                 <>
                   <Field label="Nominal refund (Rp)" hint={`Maksimal ${rupiah(sisaRefund)} (sisa yang belum direfund).`}>
@@ -621,7 +621,7 @@ function DetailOrder({
                   </Field>
                   {!bolehApprove && (
                     <div className="grid gap-3 sm:grid-cols-2">
-                      <p className="text-xs text-amber-300 sm:col-span-2">
+                      <p className="text-xs text-amber-700 sm:col-span-2">
                         Refund oleh kasir wajib disetujui Manager/Owner: masukkan email dan PIN mereka.
                       </p>
                       <Field label="Email Manager">

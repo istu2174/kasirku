@@ -112,7 +112,7 @@ export default function ReceiptsClient() {
                     className={clsx("cursor-pointer", r.id === pilihId && "bg-brand-500/10")}
                   >
                     <td>
-                      <button className="min-h-11 text-left font-semibold text-fg hover:text-brand-200">{r.receiptNo}</button>
+                      <button className="min-h-11 text-left font-semibold text-fg hover:text-brand-700">{r.receiptNo}</button>
                     </td>
                     <td className="text-muted">{tanggalWaktu(r.issuedAt)}</td>
                     <td className="text-muted">{r.order.orderNo}</td>
@@ -162,7 +162,7 @@ export default function ReceiptsClient() {
                     <StatusPill status={jobTerakhir.status} />
                   </div>
                   {jobTerakhir.error && (
-                    <p className="mt-2 text-rose-300">
+                    <p className="mt-2 text-rose-600">
                       Error (percobaan {jobTerakhir.attempts}): {jobTerakhir.error}
                     </p>
                   )}
@@ -179,7 +179,7 @@ export default function ReceiptsClient() {
                 />
                 <div className="min-w-0 text-sm">
                   <p className="font-semibold text-fg">Struk digital</p>
-                  <a href={payload.digitalUrl} target="_blank" rel="noreferrer" className="break-all text-brand-200 underline">
+                  <a href={payload.digitalUrl} target="_blank" rel="noreferrer" className="break-all text-brand-700 underline">
                     {urlDigital}
                   </a>
                   <p className="mt-1 text-xs text-muted">Berlaku 30 hari sejak terbit.</p>
@@ -200,7 +200,7 @@ export default function ReceiptsClient() {
                   href={`/api/receipts/${pilih.id}/pdf`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-base-800 px-4 text-sm font-semibold text-fg shadow-neu-sm hover:text-brand-200"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-base-800 px-4 text-sm font-semibold text-fg shadow-neu-sm hover:text-brand-700"
                 >
                   <Download size={16} aria-hidden /> Unduh PDF
                 </a>

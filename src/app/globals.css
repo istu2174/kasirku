@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --bg: #16131d;
-  color-scheme: dark;
+  --bg: #f3f4f8;
+  color-scheme: light;
 }
 
 html,
@@ -14,11 +14,11 @@ body {
 
 body {
   background:
-    radial-gradient(1200px 600px at 100% -10%, rgba(124, 58, 237, 0.12), transparent 60%),
-    radial-gradient(900px 500px at -10% 110%, rgba(196, 166, 255, 0.06), transparent 60%),
+    radial-gradient(1200px 600px at 100% -10%, rgba(24, 24, 27, 0.035), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(24, 24, 27, 0.025), transparent 60%),
     var(--bg);
   background-attachment: fixed;
-  color: #ece9f5;
+  color: #1c1c1f;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -31,7 +31,7 @@ body {
   .neu-in {
     @apply rounded-2xl bg-base-800 shadow-neu-in;
   }
-  /* Teks gradasi ungu → putih untuk judul & angka penting */
+  /* Teks gradasi hitam halus untuk judul & angka penting */
   .text-grad {
     @apply bg-grad-text bg-clip-text text-transparent;
   }
@@ -46,7 +46,7 @@ body {
     @apply border-t border-line px-4 py-3;
   }
   .tabel tbody tr:hover {
-    @apply bg-white/[0.02];
+    @apply bg-black/[0.03];
   }
 }
 
@@ -60,14 +60,14 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2e283b;
+  background: #cfd3dd;
   border-radius: 8px;
   border: 3px solid transparent;
   background-clip: content-box;
 }
 
 :focus-visible {
-  outline: 2px solid #a879ff;
+  outline: 2px solid #3f3f46;
   outline-offset: 2px;
 }
 

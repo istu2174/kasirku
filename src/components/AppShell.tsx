@@ -85,7 +85,7 @@ export default function AppShell({
                 href={n.href}
                 className={clsx(
                   "flex min-h-11 items-center gap-3 rounded-2xl px-3 text-sm font-semibold transition",
-                  aktif ? "bg-base-800 text-brand-200 shadow-neu-in" : "text-muted hover:text-fg",
+                  aktif ? "bg-base-800 text-brand-700 shadow-neu-in" : "text-muted hover:text-fg",
                 )}
               >
                 <Ikon size={18} />
@@ -97,11 +97,11 @@ export default function AppShell({
         <div className="border-t border-line p-3">
           <div className="neu-in mb-2 px-3 py-2">
             <p className="truncate text-sm font-bold">{user.name}</p>
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-300">{user.role}</p>
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-700">{user.role}</p>
           </div>
           <button
             onClick={keluar}
-            className="flex min-h-11 w-full items-center gap-2 rounded-2xl px-3 text-sm font-semibold text-muted hover:bg-rose-500/10 hover:text-rose-300"
+            className="flex min-h-11 w-full items-center gap-2 rounded-2xl px-3 text-sm font-semibold text-muted hover:bg-rose-500/10 hover:text-rose-600"
           >
             <LogOut size={16} /> Keluar
           </button>
@@ -136,7 +136,7 @@ export default function AppShell({
                       onClick={() => setBuka(false)}
                       className={clsx(
                         "flex min-h-11 items-center gap-3 rounded-2xl px-3 text-sm font-semibold",
-                        pathname.startsWith(n.href) ? "text-brand-200 shadow-neu-in" : "text-muted",
+                        pathname.startsWith(n.href) ? "text-brand-700 shadow-neu-in" : "text-muted",
                       )}
                     >
                       <Ikon size={18} /> {n.label}
@@ -146,7 +146,7 @@ export default function AppShell({
               </div>
               <button
                 onClick={keluar}
-                className="mt-4 flex min-h-11 w-full items-center gap-2 rounded-2xl px-3 text-sm font-semibold text-rose-300"
+                className="mt-4 flex min-h-11 w-full items-center gap-2 rounded-2xl px-3 text-sm font-semibold text-rose-600"
               >
                 <LogOut size={16} /> Keluar
               </button>
