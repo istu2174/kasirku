@@ -1,0 +1,40 @@
+# Layanan pendukung untuk mode production-like (lihat docs/architecture.md).
+# Dev lokal default tidak butuh ini (SQLite + queue in-memory).
+#   DATABASE_URL="postgresql://kasirku:kasirku@localhost:5432/kasirku"   (ganti provider di prisma/schema.prisma)
+#   REDIS_URL="redis://localhost:6379"
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kasirku
+      POSTGRES_PASSWORD: kasirku
+      POSTGRES_DB: kasirku
+      TZ: Asia/Jakarta
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kasirku -d kasirku"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:
+  redisdata:

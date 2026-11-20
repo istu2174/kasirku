@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #16131d;
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgba(124, 58, 237, 0.12), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(196, 166, 255, 0.06), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+  color: #ece9f5;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  /* Permukaan timbul (raised) */
+  .neu {
+    @apply rounded-3xl bg-base-800 shadow-neu;
+  }
+  /* Permukaan tenggelam (pressed / input) */
+  .neu-in {
+    @apply rounded-2xl bg-base-800 shadow-neu-in;
+  }
+  /* Teks gradasi ungu → putih untuk judul & angka penting */
+  .text-grad {
+    @apply bg-grad-text bg-clip-text text-transparent;
+  }
+  /* Tabel data standar */
+  .tabel {
+    @apply w-full text-left text-sm;
+  }
+  .tabel th {
+    @apply px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted;
+  }
+  .tabel td {
+    @apply border-t border-line px-4 py-3;
+  }
+  .tabel tbody tr:hover {
+    @apply bg-white/[0.02];
+  }
+}
+
+/* Angka uang tabular supaya enak dibaca kasir */
+.uang {
+  font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2e283b;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+:focus-visible {
+  outline: 2px solid #a879ff;
+  outline-offset: 2px;
+}
+
+/* Struk thermal tetap putih-hitam seperti kertas asli */
+.struk {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: pre;
+  background: #fafafa;
+  color: #111;
+}
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

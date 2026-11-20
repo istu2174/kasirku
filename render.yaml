@@ -1,0 +1,28 @@
+# Blueprint Render: 1 web service gratis. Database pakai Neon (Postgres gratis permanen),
+# karena Postgres gratis Render dihapus setelah 30 hari. Lihat DEPLOY.md.
+services:
+  - type: web
+    name: kasirku
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci && npm run build
+    # Buat/ubah tabel (tanpa hapus data), seed sekali kalau DB kosong, lalu jalan.
+    startCommand: npm run start:prod
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        sync: false # isi manual: connection string Neon
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: SEED_PASSWORD
+        generateValue: true # password awal semua akun; lihat di tab Environment
+      - key: PAYMENT_PROVIDER
+        value: fake # ganti ke midtrans setelah akun Midtrans siap
+      - key: PAYMENT_FAKE_SECRET
+        generateValue: true
+      - key: PRINT_MODE
+        value: none # belum ada printer thermal; struk tampil & bisa dicetak dari browser
